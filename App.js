@@ -18,11 +18,11 @@ export default function App() {
   //Variables to display data
   var isLoading = false;
   var [balance, setBalance] = useState([]);
-  var [salary, setSalary] = useState([]);           //Monthly Salary
-  var [available, setAvailable] = useState([]);     //Available balance
+  var [salary, setSalary] = useState([]); //Monthly Salary
+  var [available, setAvailable] = useState([]); //Available balance
   var [maxwithdraw, setMaxwithdraw] = useState([]); //Maximum allowed
-  var [name, setName] = useState("");               //Name = FirstName + MiddleName + LastName
-  var [isLoading, setloading] = useState(true);     //Status of API Loading
+  var [name, setName] = useState(""); //Name = FirstName + MiddleName + LastName
+  var [isLoading, setloading] = useState(true); //Status of API Loading
 
   //Calling API and fetching data
   useEffect(() => {
@@ -53,9 +53,9 @@ export default function App() {
     // setname(datasrc.data.first_name);
     return (
       <ScrollView>
-{/* Displaying Name , Salary, Available Balance and Maximum withdrawable amount */}
+        {/* Displaying Name , Salary, Available Balance and Maximum withdrawable amount */}
         <View style={styles.container}>
-          <Text style={styles.heading}>Hello {name},</Text> 
+          <Text style={styles.heading}>Hello {name},</Text>
           <Text style={styles.bodytext}>
             You have earned Rs. {salary / 100} this month.
           </Text>
@@ -73,11 +73,11 @@ export default function App() {
               style={styles.editText}
               value={balance.toString()}
               onChangeText={(text) => {
-                setbalance(text);
+                setBalance(text);
               }}
             />
           </View>
-{/* For each options calculating percentage of maximum withdrawable amount like for 25% I calculated (Maximum withdrawable * 25/100) in Rs */}
+          {/* For each options calculating percentage of maximum withdrawable amount like for 25% I calculated (Maximum withdrawable * 25/100) in Rs */}
           <View style={styles.options}>
             <Text
               style={styles.rounded}
@@ -106,7 +106,7 @@ export default function App() {
               100%
             </Text>
           </View>
-{/*WithDraw Button*/}
+          {/*WithDraw Button*/}
 
           <TouchableOpacity style={styles.appButtonContainer}>
             <Text style={styles.appButtonText}>Withdraw</Text>
